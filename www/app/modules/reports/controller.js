@@ -5,16 +5,23 @@ angular.module('swarmtrace.controllers', [])
   $log.log('New Report Controller');
 
   $scope.mapCreated = function(map) {
+
     $scope.map = map;
 
-    console.log("Centering");
+    $scope.centerMap();
+
+  };
+
+  $scope.centerMap = function(){
+
     if (!$scope.map) {
-      $log.log('meh');
       return;
     }
 
+    console.log("Centering");
+
     $scope.loading = $ionicLoading.show({
-      content: 'Getting current location...',
+      content: 'Obteniendo ubicación actual...',
       showBackdrop: false
     });
 
@@ -26,6 +33,6 @@ angular.module('swarmtrace.controllers', [])
       alert('Unable to get location: ' + error.message);
     });
 
-  };
+  }
 
 });
