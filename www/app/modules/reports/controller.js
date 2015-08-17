@@ -1,6 +1,6 @@
 angular.module('swarmtrace.controllers', [])
 
-.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading) {
+.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, Camera) {
 
   $log.log('New Report Controller');
 
@@ -33,6 +33,18 @@ angular.module('swarmtrace.controllers', [])
       alert('Unable to get location: ' + error.message);
     });
 
+  }
+
+  $scope.pictures = [
+  ];
+
+  $scope.takePicture = function(){
+    Camera.getPicture().then(function(imageURI) {
+      alert(imageURI);
+      $scope.pictures.push({url:imageURI});
+    }, function(err) {
+      $log.err(err);
+    });
   }
 
 });

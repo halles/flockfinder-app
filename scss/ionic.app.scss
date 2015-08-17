@@ -48,3 +48,21 @@ map {
 .map-container{
     height: 200px;
 }
+
+.report-picture {
+    float: left;
+    height: 160px;
+    background-position: center center;
+    background-size: cover;
+};
+
+.report-picture-add{
+    float: left;
+    height: 160px;
+    margin-bottom: 50px;
+}
+
+.report-picture-add button{
+    width: 100%;
+    height: 100%;
+}

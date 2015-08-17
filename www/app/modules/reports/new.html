@@ -36,6 +36,14 @@
             <div class="item item-divider">
                 Fotografías
             </div>
+            <div class="report-picture col col-50" ng-repeat="picture in pictures" style="background-image:url({{picture.url}})">
+            </div>
+            <div class="report-picture-add col col-50">
+                <button class="button button-light" ng-click="takePicture()">
+                    <i class="icon ion-camera"></i><br/>
+                    Añadir Fotografía
+                </button>
+            </div>
         </div>
     </ion-content>
     <div class="bar bar-footer">
