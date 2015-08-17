@@ -1,16 +1,48 @@
 <ion-view title="Nuevo Reporte">
-  <ion-content>
-    <div class="list">
-        <div class="item item-button-right">
-            <i class="icon ion-android-pin"></i>
-            Ubicación
-            <button class="button button-positive" ng-click="centerMap()">
+    <ion-content>
+        <div class="list">
+            <div class="item item-divider">
+                <i class="icon ion-earth"></i>
+                Ubicación
+            </div>
+            <div class="map-container">
+                <map on-create="mapCreated(map)"></map>
+            </div>
+            <a class="item item-icon-right" href="#" ng-click="centerMap()">
+                Recargar Ubicación
                 <i class="icon ion-refresh"></i>
+            </a>
+            <div class="item item-divider">
+                Características
+            </div>
+            <div class="item item-toggle">
+                Manchas
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-toggle">
+                Collar
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-divider">
+                Fotografías
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <button class="button icon-right button-balanced">
+                Enviar Reporte
             </button>
-          </div>
-        <div class="map-container">
-            <map on-create="mapCreated(map)"></map>
         </div>
     </div>
-  </ion-content>
 </ion-view>
