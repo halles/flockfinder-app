@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="
+        img-src 'self' data: http: https:;
+        " />
     <title></title>
-
 
     <!-- compiled css output -->
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -14,6 +16,9 @@
 
     <!-- satellizer -->
     <script src="lib/satellizer/satellizer.min.js"></script>
+
+    <!-- angular-thumbnail -->
+    <script src="lib/angular-thumbnail/angular-thumbnail.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>

@@ -1,6 +1,13 @@
 angular.module('swarmtrace.controllers', [])
 
-.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, Camera) {
+.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, Camera, ThumbnailService) {
+
+  $scope.report = {
+    geoposition: null,
+    feats: [],
+    description: [],
+    pictures: []
+  }
 
   $log.log('New Report Controller');
 
@@ -18,7 +25,7 @@ angular.module('swarmtrace.controllers', [])
       return;
     }
 
-    console.log("Centering");
+    $log.log("Centering");
 
     $scope.loading = $ionicLoading.show({
       content: 'Obteniendo ubicación actual...',
@@ -26,6 +33,7 @@ angular.module('swarmtrace.controllers', [])
     });
 
     navigator.geolocation.getCurrentPosition(function (pos) {
+      $scope.report.geoposition = pos;
       console.log('Got pos', pos);
       $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
       $ionicLoading.hide();
@@ -35,15 +43,24 @@ angular.module('swarmtrace.controllers', [])
 
   }
 
-  $scope.pictures = [
-  ];
-
   $scope.takePicture = function(){
     Camera.getPicture().then(function(imageURI) {
-      alert(imageURI);
-      $scope.pictures.push({url:imageURI});
+
+      $log.log(imageURI);
+
+      $log.log($scope.report);
+
+      var theThumb = ThumbnailService.generate(imageURI);
+      theThumb.then(function(data){
+        $log.log(data);
+        $scope.report.pictures.push({
+          url:imageURI,
+          thumb: data,
+        });
+      });
+
     }, function(err) {
-      $log.err(err);
+      $log.log(err);
     });
   }
 

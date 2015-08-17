@@ -8,8 +8,9 @@ angular.module('swarmtrace', [
     'satellizer',
     'swarmtrace.controllers',
     'swarmtrace.directives',
-    'starter.factories']
-)
+    'starter.factories',
+    'ui.thumbnail'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,3 +37,9 @@ angular.module('swarmtrace', [
     })
 
 })
+
+.config(function(ThumbnailServiceProvider) {
+    // otherwise they're 100
+    ThumbnailServiceProvider.defaults.width = 160;
+    ThumbnailServiceProvider.defaults.height = 160;
+  })

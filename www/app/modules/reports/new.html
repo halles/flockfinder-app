@@ -36,7 +36,8 @@
             <div class="item item-divider">
                 Fotografías
             </div>
-            <div class="report-picture col col-50" ng-repeat="picture in pictures" style="background-image:url({{picture.url}})">
+            <div class="report-picture col col-50" ng-repeat="picture in report.pictures" style="background-image:url({{picture.url}})">
+                <button class="button button-outline button-balanced icon ion-gear-a" ng-click="removePicture($index)"></button>
             </div>
             <div class="report-picture-add col col-50">
                 <button class="button button-light" ng-click="takePicture()">
