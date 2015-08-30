@@ -1,4 +1,6 @@
-angular.module('mmera.directives', [])
+angular.module('mmera.directives', []);
+
+angular.module('mmera.directives')
 
 .directive('map', function() {
   return {

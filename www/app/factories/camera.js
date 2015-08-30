@@ -1,4 +1,6 @@
-angular.module('mmera.factories', [])
+angular.module('mmera.factories', []);
+
+angular.module('mmera.factories')
 
 .factory('Camera', ['$q', function($q) {
 

@@ -14,6 +14,7 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <!-- ngCordova -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
     <!-- satellizer -->
@@ -26,7 +27,16 @@
     <script src="cordova.js"></script>
 
     <!-- Controllers -->
-    <script src="app/modules/reports/controller.js"></script>
+    <script src="app/modules/home/homeController.js"></script>
+    <script src="app/modules/account/accountController.js"></script>
+    <script src="app/modules/account/accountLoginController.js"></script>
+    <script src="app/modules/account/accountNewController.js"></script>
+    <script src="app/modules/account/accountRecoverController.js"></script>
+    <script src="app/modules/reports/reportsController.js"></script>
+    <script src="app/modules/reports/reportsNewController.js"></script>
+    <script src="app/modules/reports/reportsNewDogController.js"></script>
+    <script src="app/modules/reports/reportsNewCatController.js"></script>
+    <script src="app/modules/about/aboutController.js"></script>
 
     <!-- Directives -->
     <script src="app/directives/map.js"></script>
@@ -41,7 +51,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=false&language=en&v=3.14"></script>
 
   </head>
-  <body ng-app="swarmtrace">
+  <body ng-app="mmera">
     <ion-side-menus enable-menu-with-back-views="true">
         <ion-side-menu-content>
             <ion-nav-bar class="bar-balanced nav-title-slide-ios7">

@@ -3,6 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+
+angular.module('mmera.directives', []);
+angular.module('mmera.factories', []);
+
 angular.module('mmera', [
     'ionic',
     'satellizer',
@@ -31,11 +35,64 @@ angular.module('mmera', [
     $urlRouterProvider.otherwise('/')
 
     $stateProvider
-    .state('reports', {
+    .state('home', {
         url: '/',
-        controller: 'ReportNewController',
-        templateUrl: 'app/modules/reports/new.html'
+        controller: 'homeController',
+        templateUrl: 'app/modules/home/home.html'
     })
+    .state('account', {
+        url: '/account',
+        controller: 'accountController',
+        templateUrl: 'app/modules/account/account.html'
+    })
+    .state('account.new', {
+        url: '/new',
+        controller: 'accountNewController',
+        templateUrl: 'app/modules/account/new.html'
+    })
+    .state('account.recover', {
+        url: '/recover',
+        controller: 'accountRecoverController',
+        templateUrl: 'app/modules/account/recover.html'
+    })
+    .state('account.login', {
+        url: '/login',
+        controller: 'accountLoginController',
+        templateUrl: 'app/modules/account/login.html'
+    })
+    .state('reports', {
+        url: '/reports',
+        controller: 'reportsController',
+        templateUrl: 'app/modules/reports/reports.html'
+    })
+    .state('reports.new', {
+        url: '/new',
+        controller: 'reportsNewController',
+        templateUrl: 'app/modules/reports/newReport.html'
+    })
+    .state('reports.new.dog', {
+        url: '/dog',
+        controller: 'reportstNewDogController',
+        templateUrl: 'app/modules/reports/newReportDog.html'
+    })
+    .state('reports.new.cat', {
+        url: '/cat',
+        controller: 'reportsNewCatController',
+        templateUrl: 'app/modules/reports/newReportCat.html'
+    })
+    .state('about', {
+        url: '/about',
+        controller: 'aboutController',
+        templateUrl: 'app/modules/about/about.html'
+    })
+    .state('about.tos', {
+        url: '/tos',
+        templateUrl: 'app/modules/about/tos.html'
+    })
+    .state('about.privacy-policy', {
+        url: '/privacy-policy',
+        templateUrl: 'app/modules/about/privacy-policy.html'
+    });
 
 })
 

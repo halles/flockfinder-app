@@ -1,6 +1,6 @@
-angular.module('mmera.controllers', [])
+angular.module('mmera.controllers')
 
-.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, $ionicPlatform, Camera, ThumbnailService, $cordovaGeolocation) {
+.controller('reportsNewDogController', function($scope, $log, $timeout, $ionicLoading, $ionicPlatform, Camera, ThumbnailService, $cordovaGeolocation) {
 
   $scope.report = {
     geoposition: null,
