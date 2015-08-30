@@ -3,13 +3,14 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('swarmtrace', [
+angular.module('mmera', [
     'ionic',
     'satellizer',
-    'swarmtrace.controllers',
-    'swarmtrace.directives',
-    'starter.factories',
-    'ui.thumbnail'
+    'mmera.controllers',
+    'mmera.directives',
+    'mmera.factories',
+    'ui.thumbnail',
+    'ngCordova'
 ])
 
 .run(function($ionicPlatform) {
@@ -42,4 +43,14 @@ angular.module('swarmtrace', [
     // otherwise they're 100
     ThumbnailServiceProvider.defaults.width = 160;
     ThumbnailServiceProvider.defaults.height = 160;
-  })
+})
+
+.config(function ($ionicConfigProvider) {
+
+    // Enable native scrolls for Android platform only,
+    // as you see, we're disabling jsScrolling to achieve this.
+    if (ionic.Platform.isAndroid()) {
+      $ionicConfigProvider.scrolling.jsScrolling(false);
+    }
+
+});

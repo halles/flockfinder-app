@@ -1,4 +1,4 @@
-<ion-view title="Nuevo Reporte">
+<ion-view title="Nuevo Reporte Perros">
     <ion-content>
         <div class="list">
             <div class="item item-divider">
@@ -13,10 +13,55 @@
                 <i class="icon ion-refresh"></i>
             </a>
             <div class="item item-divider">
+                <i class="ion-levels"></i>
                 Características
             </div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Tamaño
+                </div>
+                <select>
+                  <option>Miniatura</option>
+                  <option>Pequeño</option>
+                  <option selected>Mediano</option>
+                  <option>Grande</option>
+                  <option>Gigante</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Color
+                </div>
+                <select>
+                  <option>Blanco</option>
+                  <option>Café</option>
+                  <option>Café Claro</option>
+                  <option>Negro</option>
+                  <option>Rojizo</option>
+                  <option>Gris</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Pelaje
+                </div>
+                <select>
+                  <option>Corto</option>
+                  <option>Largo</option>
+                  <option>Rizado</option>
+                </select>
+            </label>
             <div class="item item-toggle">
                 Manchas
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-toggle">
+                Rayas
                 <label class="toggle toggle-balanced">
                     <input type="checkbox">
                     <div class="track">
@@ -34,6 +79,7 @@
                 </label>
             </div>
             <div class="item item-divider">
+                <i class="ion-camera"></i>
                 Fotografías
             </div>
             <div class="report-picture col col-50" ng-repeat="picture in report.pictures" style="background-image:url({{picture.url}})">

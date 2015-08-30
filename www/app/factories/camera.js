@@ -1,4 +1,4 @@
-angular.module('starter.factories', [])
+angular.module('mmera.factories', [])
 
 .factory('Camera', ['$q', function($q) {
 

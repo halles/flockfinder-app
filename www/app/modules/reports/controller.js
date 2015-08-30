@@ -1,6 +1,6 @@
-angular.module('swarmtrace.controllers', [])
+angular.module('mmera.controllers', [])
 
-.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, Camera, ThumbnailService) {
+.controller('ReportNewController', function($scope, $log, $timeout, $ionicLoading, $ionicPlatform, Camera, ThumbnailService, $cordovaGeolocation) {
 
   $scope.report = {
     geoposition: null,
@@ -19,32 +19,54 @@ angular.module('swarmtrace.controllers', [])
 
   };
 
+  var geoMarker = null;
+
   $scope.centerMap = function(){
 
     if (!$scope.map) {
       return;
     }
 
-    $log.log("Centering");
-
     $scope.loading = $ionicLoading.show({
       content: 'Obteniendo ubicación actual...',
       showBackdrop: false
     });
 
-    navigator.geolocation.getCurrentPosition(function (pos) {
-      $scope.report.geoposition = pos;
-      console.log('Got pos', pos);
-      $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-      $ionicLoading.hide();
-    }, function (error) {
-      alert('Unable to get location: ' + error.message);
+    $ionicPlatform.ready(function() {
+
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
+        $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function(pos){
+                $scope.report.geoposition = pos;
+                console.log('Got pos', pos);
+                latlng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                $scope.map.setCenter(latlng);
+                if(geoMarker!=null){
+                    geoMarker.setMap(null);
+                }
+                geoMarker = new google.maps.Marker({
+                    position: latlng,
+                    map: $scope.map,
+                    title: 'My Position',
+                    icon: 'img/current-location-icon.png'
+                });
+                $ionicLoading.hide();
+            });
+
     });
 
   }
 
   $scope.takePicture = function(){
-    Camera.getPicture().then(function(imageURI) {
+
+    var options = {
+        quality : 75,
+        targetWidth: 600,
+        targetHeight: 600
+    };
+
+    Camera.getPicture(options).then(function(imageURI) {
 
       $log.log(imageURI);
 

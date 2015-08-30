@@ -1,7 +1,7 @@
 {
-  "name": "flockfinder",
-  "version": "1.0.0",
-  "description": "flockfinder: An Ionic project",
+  "name": "mmera-ionic-app",
+  "version": "0.0.1",
+  "description": "mmera: who let the dogs out",
   "dependencies": {
     "abbrev": "^1.0.7",
     "bower-config": "^0.6.1",
